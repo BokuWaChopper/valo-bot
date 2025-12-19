@@ -18,6 +18,8 @@ PRESETS: dict[str, tuple[str, str, str]] = {
     "irinel": ("eu", "Irinel", "5555"),
     "louis": ("eu", "Boku Wa Luizao", "0001"),
     "horatiu": ("eu", "123cmboy", "EUNE"),
+    "stapot": ("eu", "Mizukii", "enana"),
+
 }
 
 class MyClient(discord.Client):
@@ -189,6 +191,17 @@ async def horatiu_cmd(interaction: discord.Interaction):
     r, n, t = PRESETS["horatiu"]
     await run_stats(interaction, r, n, t)
 
+@client.tree.command(name="stapot", description="Shortcut: Mizukii#enana (EU)")
+@app_commands.checks.cooldown(1, 60.0, key=lambda i: i.user.id)
+async def stapot_cmd(interaction: discord.Interaction):
+    preset = PRESETS.get("stapot")
+    if not preset:
+        await reply_or_followup(interaction, content="Preset-ul 'stapot' nu e configurat în PRESETS.", ephemeral=True)
+        return
+    r, n, t = preset
+    await run_stats(interaction, r, n, t)
+
+
 
 @client.tree.command(name="help", description="Arată comenzile botului.")
 async def help_cmd(interaction: discord.Interaction):
@@ -199,7 +212,8 @@ async def help_cmd(interaction: discord.Interaction):
         "- /choppa\n"
         "- /irinel\n"
         "- /louis\n"
-        "- /horatiu\n\n"
+        "- /horatiu\n"
+        "- /stapot\n\n"
         "Notă: XP până la level-up necesită autentificare pe cont (nu e public).",
         ephemeral=True,
     )
