@@ -1,9 +1,14 @@
 from flask import Flask
+import threading
 
 app = Flask(__name__)
 
-def start_web():
-    app.run(host='0.0.0.0', port=8080)
+@app.route('/')
+def home():
+    return 'Bot is running!', 200
 
-if __name__ == '__main__':
-    start_web()
+def start_web():
+    # Run Flask in a separate thread so it doesn't block the bot
+    thread = threading.Thread(target=lambda: app.run(host='0.0.0.0', port=8080, debug=False))
+    thread.daemon = True
+    thread.start()
