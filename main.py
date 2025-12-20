@@ -79,7 +79,7 @@ def build_embed(region: str, game_name: str, tag_line: str, mmr_payload: dict, m
     last_update_raw = acct.get("last_update_raw")
 
     rank = current.get("currenttierpatched") or "N/A"
-     highest_rank = current.get("highest_tier_patched") or "N/A"
+    highest_rank = current.get("highest_tier_patched") or "N/A"
     rr = current.get("ranking_in_tier")
     rr_txt = f"{rr} RR" if rr is not None else "N/A"
     elo = current.get("elo")
