@@ -113,7 +113,7 @@ def build_embed(region: str, game_name: str, tag_line: str, mmr_payload: dict, m
     e.add_field(name="Level", value=str(level) if level is not None else "N/A", inline=True)
     e.add_field(name="Rank", value="asta e prea slab sa aiba rank" if rank == "N/A" else str(rank), inline=True)
     e.add_field(name="Elo", value=elo_txt, inline=True)
-     e.add_field(name="RR", value=rr_txt, inline=True)
+    e.add_field(name="RR", value=rr_txt, inline=True)
     e.add_field(name="Games (current season)", value=str(season_games), inline=True)
     e.add_field(name="Last RR change", value=str(last_rr_change) if last_rr_change is not None else "N/A", inline=True)
 
