@@ -103,7 +103,7 @@ def build_embed(region: str, game_name: str, tag_line: str, mmr_payload: dict, m
 
     e = discord.Embed(
         title=f"VALORANT: {name}#{tag}",
-        description=f"Region: {region.upper()} | Sursă: MADE BY CHOPPA,"
+        description=f"Region: {region.upper()} | Sursă: MADE BY CHOPPA,",
         color=0xE74C3C,
     )
 
